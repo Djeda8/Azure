@@ -1,0 +1,16 @@
+dotnet new mvc
+
+dotnet build
+
+dotnet publish -c Release -o ./publish
+
+
+// Extensions Azure App Service
+Right click over publish folder => Deploy to Web App
+
+
+//Or using the terminal 
+Compress-Archive .\bin\publish\* .\bin\app.zip
+
+az webapp deployment source config-zip --src .\bin\app.zip
+az webapp deployment source config-zip --resource-group ManagedPlatform --src app.zip --name <name-of-your-web-app>
