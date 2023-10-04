@@ -1,0 +1,9 @@
+az login
+az account set -s 'Azure subscription 1'
+
+$name="demoswebapptrainerdou1"
+echo $name
+
+az appservice plan create -l westeurope -g Demostraciones -n $name --sku S1
+
+az webapp create -n miwebappdou1 -g Demostraciones --plan $name
