@@ -1,0 +1,2 @@
+//create a new local Azure Functions project 
+func init --worker-runtime dotnet --force
