@@ -1,2 +1,31 @@
-//create a new local Azure Functions project 
+// create a new local Azure Functions project 
 func init --worker-runtime dotnet --force
+func init LocalFuctionProjiso --dotnet-isolated
+
+
+// create a new function named Echo using the HTTP trigger template
+func new --template "HTTP trigger" --name "Echo"
+func new --template "HTTP trigger" --name "GetSettingInfo" --authlevel “anonymous”
+
+
+// run the function app project
+func start --build
+
+//install and start the httprepl tool
+dotnet tool install -g Microsoft.dotnet-httprepl
+
+// setting the base Uniform Resource Identifier (URI)
+httprepl http://localhost:7071
+cd api
+cd echo
+post --content 3
+
+// create a new function named Recurring, using the Timer trigger template
+func new --template "Timer trigger" --name "Recurring"
+
+// register the Microsoft.Azure.WebJobs.Extensions.Storage extension
+func extensions install --package Microsoft.Azure.WebJobs.Extensions.Storage --version 5.0.1
+
+// Deploy a local function project to an Azure Functions app
+az login
+func azure functionapp publish <function-app-name>
