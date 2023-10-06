@@ -8,7 +8,7 @@ public class Program
 {
     private const string blobServiceEndpoint = "https://mediastortrainer.blob.core.windows.net/";
     private const string storageAccountName = "mediastortrainer";
-    private const string storageAccountKey = "XdA7KECBfXSZrwc6aL1gRh3bT90h/kT3uwmrEivOXrHSDYVW1JTC22dpW7t4tDxWyeJ45hSzduHe+AStpbyryg==";
+    private const string storageAccountKey = "";
 
     public static async Task Main(string[] args)
     {
