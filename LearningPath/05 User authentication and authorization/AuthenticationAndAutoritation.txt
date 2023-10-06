@@ -1,0 +1,6 @@
+// Cloud Shell
+Connect-AzureAD
+
+
+$aadDomainName = ((Get-AzureAdTenantDetail).VerifiedDomains)[0].Name
+$aadDomainName
