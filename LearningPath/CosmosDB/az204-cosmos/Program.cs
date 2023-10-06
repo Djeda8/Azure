@@ -6,7 +6,7 @@ public class Program
     private static readonly string EndpointUri = "https://mycosmosdbacctdou.documents.azure.com:443/";
 
     // Set variable to the Primary Key from earlier.
-    private static readonly string PrimaryKey = "cy2Jml9tikEDDLHSQqKjC1AtngABfVLRjvcUaTNfa26j1eH0ohtwdXCZPEaR7AwFnUlMZUrmkSXNACDbcX0yJg==";
+    private static readonly string PrimaryKey = "";
 
     // The Cosmos client instance
     private CosmosClient cosmosClient;
