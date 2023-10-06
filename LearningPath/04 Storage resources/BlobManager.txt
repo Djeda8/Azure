@@ -1,0 +1,3 @@
+dotnet new console --framework net6.0 --name BlobManager --output .
+
+dotnet add package Azure.Storage.Blobs --version 12.12.0
