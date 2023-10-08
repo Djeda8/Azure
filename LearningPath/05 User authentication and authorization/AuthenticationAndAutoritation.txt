@@ -4,3 +4,14 @@ Connect-AzureAD
 
 $aadDomainName = ((Get-AzureAdTenantDetail).VerifiedDomains)[0].Name
 $aadDomainName
+
+$passwordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
+$passwordProfile.Password = 'Pa55w.rd1234'
+$passwordProfile.ForceChangePasswordNextLogin = $false
+New-AzureADUser -AccountEnabled $true -DisplayName 'aad_lab_user1' -PasswordProfile $passwordProfile -MailNickName 'aad_lab_user1' -UserPrincipalName "aad_lab_user1@$aadDomainName" 
+
+(Get-AzureADUser -Filter "MailNickName eq 'aad_lab_user1'").UserPrincipalName
+
+// Create a single-tenant ASP.NET web app
+dotnet new mvc --auth SingleOrg --client-id <application_ID> --tenant-id <tenant_ID> --domain <domain_Name>
+rmdir .\obj /S /Q
