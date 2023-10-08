@@ -1,0 +1,8 @@
+FROM mcr.microsoft.com/appsvc/dotnetcore:lts
+
+ENV PORT 8080
+EXPOSE 8080
+
+ENV ASPNETCORE_URLS "HTTP:*:${PORT}}"
+
+ENTRYPOINT [ "dotnet", "/defalthome/hostingstart/hostingstart.dll" ]

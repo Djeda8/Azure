@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/4eb60e8c-0f6b-4dac-a3f1-49891b5e8a25/resourceGroups/MonitoredAssets/providers/Microsoft.Web/sites/smpapitrainer2",
+    "appService.deploySubpath": "publish"
+}
