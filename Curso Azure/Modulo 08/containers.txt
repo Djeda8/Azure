@@ -1,0 +1,87 @@
+az login
+
+az account set --subscription “Aula 01”
+
+# Connect to the registry
+az acr login --name acrdemostrainer2111
+
+
+#download the image
+docker pull mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+
+#Execute the image
+docker run -it --rm -p 8080:80 mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+
+# Set a tag
+docker tag mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine acrdemostrainer2111.azurecr.io/simples/nginx
+
+#Upload to the registry
+docker push acrdemostrainer2111.azurecr.io/simples/nginx
+
+#download the image
+docker pull acrdemostrainer2111.azurecr.io/simples/nginx
+
+#Execute the image
+docker run -it --rm -p 8080:80 acrdemostrainer2111.azurecr.io/simples/nginx
+
+# Delete the local image
+docker rmi acrdemostrainer2111.azurecr.io/simples/nginx
+
+# Delete the image in Azure
+az acr repository delete --name acrdemostrainer2111 --image simples/nginx:latest
+
+# Build image from dockerfile
+Docker build ./aci-helloworld -t aci-tutorial-app
+
+# Check the image
+Docker images
+
+#Execute the image
+Docker run -d -p 8080:80 aci-tutorial-app  
+
+# Create regystry
+Az acr create --resource-group myResourceGroup --name acrdemostrainer2111 --sku Basic
+
+# Connect to the registry
+az acr login --name acrdemostrainer2111
+
+# Set a tag
+Docker tag aci-tutorial-app acrdemostrainer2111.azurecr.io/aci-tutorial-app:v1
+
+#Upload to the registry
+Docker push acrdemostrainer2111.azurecr.io/aci-tutorial-app:v1
+
+# Build and push image from a Dockerfile
+echo FROM mcr.microsoft.com/hello-world > Dockerfile
+az acr build --image sample/hello-world:v1 --registry acrtrainer2111 --file Dockerfile .
+
+# Verify results
+az acr repository list --name <myContainerRegistry> --output table
+
+# list the tags on the sample/hello-world repository
+az acr repository show-tags --name <myContainerRegistry> --repository sample/hello-world --output table
+
+# Run the image in the ACR
+az acr run --registry <myContainerRegistry> --cmd '$Registry/sample/hello-world:v1' /dev/null
+
+az group delete --name az204-acr-rg --no-wait
+
+#Create a container
+az group create --name az204-aci-rg --location <myLocation>
+DNS_NAME_LABEL=aci-example-$RANDOM
+az container create --resource-group az204-aci-rg --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld --ports 80 --dns-name-label $DNS_NAME_LABEL --location <myLocation>
+
+# Verify the container is running
+az container show --resource-group az204-aci-rg  --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+
+# Deploy a container app
+myRG=az204-appcont-rg
+myLocation=<location>
+myAppContEnv=az204-env-$RANDOM
+
+az group create --name $myRG --location $myLocation
+
+az containerapp env create --name $myAppContEnv --resource-group $myRG --location $myLocation
+
+az containerapp create --name my-container-app --resource-group $myRG --environment $myAppContEnv --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest --target-port 80 --ingress 'external' --query properties.configuration.ingress.fqdn
+
