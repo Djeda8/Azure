@@ -12,7 +12,7 @@
     public class Program
     {
         private const string EndpointUrl = "https://polycosmosdou.documents.azure.com:443/";
-        private const string AuthorizationKey = "5VXGRGyw6FE3W6SpObitINoUOIVHrpPzF1fyeiUcGPDiCtf33hqpFsMTwcwQ6gmO73IXioyZQ4dDACDbknGWog==";
+        private const string AuthorizationKey = "";
         private const string DatabaseName = "Retail";
         private const string ContainerName = "Online";
         private const string PartitionKey = "/Category";
