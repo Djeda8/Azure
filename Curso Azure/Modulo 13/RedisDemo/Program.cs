@@ -5,7 +5,7 @@ using StackExchange.Redis;
 
 public class Program
 {
-    private const string connectionString = "rediscachedemostrainer1.redis.cache.windows.net:6380,password=pu0V1gAdZWTaapXax55g7RJA3kpljCR58AzCaMPot3E=,ssl=True,abortConnect=False";
+    private const string connectionString = "rediscachedemostrainer1.redis.cache.windows.net:6380,password=8P2KYWrgH4LP40LemZiWUJmyO5mGxtS27AzCaA3ekC4=,ssl=True,abortConnect=False";
 
     public static async Task Main(string[] args)
     {
@@ -37,7 +37,7 @@ public class Program
 
             string serializedValue = JsonSerializer.Serialize(stat);
             bool added = db.StringSet("event:1950-world-cup", serializedValue);
-            Console.WriteLine($"REsultado del SET: " + added);
+            Console.WriteLine($"Resultado del SET: " + added);
 
             Console.WriteLine($"Recuperar el dato por la clave event:1950-world-cup");
             var resultado = db.StringGet("event:1950-world-cup");

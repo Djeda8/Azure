@@ -4,8 +4,8 @@ using Azure.Messaging.EventGrid;
 
  public class Program
     {
-        private const string topicEndpoint = "https://hrtopictrainer.ukwest-1.eventgrid.azure.net/api/events";
-        private const string topicKey = "V0C4wVjf7cdBdFV34HtMfenCi+jJmdjT+rS6fJ8V/pE=";
+        private const string topicEndpoint = "https://hrtopicdou.ukwest-1.eventgrid.azure.net/api/events";
+        private const string topicKey = "SpxtJlT3s9gggtta3zJgWhnF7toa4xpP4G0+jgx7uAw=";
         public static async Task Main(string[] args)
         {
             Uri endpoint = new Uri(topicEndpoint);

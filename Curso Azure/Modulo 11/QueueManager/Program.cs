@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 public class Program
 {
-    private const string connectionString ="DefaultEndpointsProtocol=https;AccountName=demostrainerstorage;AccountKey=80eGhsM3R5oGFCqjjjEvg4+uj4IvhcOFNhCIijHnaoPOhziWxFmK5PARmfFb/YmZV67PXYwBpL3c+AStMlpolA==;EndpointSuffix=core.windows.net";
+    private const string connectionString ="";
     public static async Task Main(string[] args)
     {
         var rnd = new Random();
@@ -46,4 +46,3 @@ public class Program
         Console.WriteLine("Done");
     }
 }
-

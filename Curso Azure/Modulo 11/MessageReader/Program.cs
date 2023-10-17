@@ -4,7 +4,7 @@ namespace MessageReader
 {
     public class Program
     {
-        private const string storageConnectionString = "Endpoint=sb://sbnamespacetrainer.servicebus.windows.net/;SharedAccessKeyName=prinpipal;SharedAccessKey=5ZOlDSrUEwav6bSky0ePtDxn3yvsJEQzJ+ASbHuUoLM=;EntityPath=messagequeue";
+        private const string storageConnectionString = "Endpoint=sb://sbnamespacetrainer.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=uPCViBv1q+wO2WD9MY9Z3Asp3/nxiNGFu+ASbEvltSY=";
         private const string queueName = "messagequeue";
         public static async Task Main(string[] args)
         {

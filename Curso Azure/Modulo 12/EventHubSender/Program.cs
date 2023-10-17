@@ -4,7 +4,7 @@ using Azure.Messaging.EventHubs.Producer;
 
 public class Program
 {
-    private const string connectionString = "Endpoint=sb://contosoeventhub2111.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=Eg5CjWVfNGiDMfbkR33dkLu7jNQU2lUJq+AEhGGmyw8=";
+    private const string connectionString = "Endpoint=sb://contosoeventhub2011.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=1q79HLHxvCW6j+wbvAasJXenyMkhaLY1o+AEhFEqukc=";
     private const string eventHubName = "myeventhub";
     private const int numOfEvents = 3;
     static EventHubProducerClient producerClient;
